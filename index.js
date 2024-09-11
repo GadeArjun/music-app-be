@@ -17,6 +17,10 @@ server.use("/", hindiSongsRouter.router);
 server.use("/", marathiSongsRouter.router);
 server.use("/", newSongsRouter.router);
 server.use("/", trendingSongsRouter.router);
+// server.use('*', (req, res) =>
+// {
+//   res.sendFile()
+// })
 
 // mongoose connection =>
 
