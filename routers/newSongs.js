@@ -3,6 +3,8 @@ const newSongsController = require("../controllers/newSongs");
 
 const router = express.Router();
 
-router.get("/newsongs/", newSongsController.getAllNewSongs);
+router
+  .get("/newsongs/", newSongsController.getAllNewSongs)
+  .get("/newsongs/:id", newSongsController.getOneNewSongs);
 
 exports.router = router;

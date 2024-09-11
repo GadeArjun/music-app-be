@@ -34,3 +34,13 @@ exports.getAll_90sSongs = async (req, res) => {
     res.json(err);
   }
 };
+
+exports.getOne_90sSongs = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const song = await _90sSongs.find({ id: id });
+    res.json(song);
+  } catch (err) {
+    res.json(err);
+  }
+};

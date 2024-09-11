@@ -32,3 +32,12 @@ exports.getAllNewSongs = async (req, res) => {
     res.json(err);
   }
 };
+exports.getOneNewSongs = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const song = await newSongs.find({ id: id });
+    res.json(song);
+  } catch (err) {
+    res.json(err);
+  }
+};

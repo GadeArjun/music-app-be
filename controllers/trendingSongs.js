@@ -34,3 +34,12 @@ exports.getAllTrendingSongs = async (req, res) => {
     res.json(err);
   }
 };
+exports.getOneTrendingSongs = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    const song = await trendingSongs.find({ id: id });
+    res.json(song);
+  } catch (err) {
+    res.json(err);
+  }
+};
