@@ -1,35 +1,59 @@
 {
   "builds": [
     {
-      "src": "/build/index.html",
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "/build/",
       "use": "@vercel/static"
     }
   ],
 
   "routes": [
     {
+      "src": "/_90ssongs",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/_90ssongs/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/newsongs",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/newsongs/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/hindisongs",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/hindisongs/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/trendingsongs",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/trendingsongs/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/marathisongs",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/marathisongs/(.*)",
+      "dest": "/index.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/build/index.html"
-    },
-    {
-      "src": "/_90ssongs/",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/newsongs/",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/hindisongs/",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/trendingsongs/",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/marathisongs/",
-      "dest": "/index.js"
     }
   ]
 }
