@@ -7,9 +7,11 @@ const marathiSongsRouter = require("./routers/marathiSongs");
 const newSongsRouter = require("./routers/newSongs");
 const trendingSongsRouter = require("./routers/trendingSongs");
 require("dotenv").config();
+const path = require("path");
 
 const server = express();
 // middle wares =>
+server.use(express.static(__dirname + '/build'));
 server.use(express.json());
 server.use(cors());
 server.use("/", _90sSongsRouter.router);
@@ -17,10 +19,9 @@ server.use("/", hindiSongsRouter.router);
 server.use("/", marathiSongsRouter.router);
 server.use("/", newSongsRouter.router);
 server.use("/", trendingSongsRouter.router);
-// server.use('*', (req, res) =>
-// {
-//   res.sendFile()
-// })
+server.use("*", (req, res) => {
+  res.sendFile(__dirname + "/build/index.html");
+});
 
 // mongoose connection =>
 
@@ -39,19 +40,8 @@ async function mongooseConnection() {
   }
 }
 
-
 mongooseConnection();
 // server connection =>
-server.listen(process.env.PORT || 8089, () => {
+server.listen(process.env.PORT, () => {
   console.log("server connected to port = ", process.env.PORT);
 });
-
-
-
-
-
-
-
-
-
-
