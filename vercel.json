@@ -52,7 +52,7 @@
       "dest": "index.js"
     },
     {
-      "src": "/music/",
+      "src": "/music",
       "dest": "build/index.html"
     },
     {
