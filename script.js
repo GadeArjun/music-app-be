@@ -9,7 +9,7 @@ exports.searchYouTube = async (searchQuery) => {
   await page.goto("https://www.youtube.com/");
 
   // Enter the search query and submit
-  await page.type("input#search", searchQuery);
+  await page.type("input#search", searchQuery + "#music #songs");
   await page.click("button#search-icon-legacy");
   await page.waitForSelector("ytd-video-renderer", { timeout: 10000 }); // Wait for videos to be rendered
 
@@ -50,7 +50,7 @@ exports.searchYouTube = async (searchQuery) => {
         musicYouTubeId,
       });
     });
-    return videos.slice(0, 3); // Return the top 5 results
+    return videos.slice(0, 15); // Return the top 15 results
   });
 
   // Print the top 5 videos

@@ -52,6 +52,14 @@
       "dest": "index.js"
     },
     {
+      "src": "/searchsongs",
+      "dest": "index.js"
+    },
+    {
+      "src": "/searchsongs/(.*)",
+      "dest": "index.js"
+    },
+    {
       "src": "/music",
       "dest": "build/index.html"
     },
