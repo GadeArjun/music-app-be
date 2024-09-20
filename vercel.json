@@ -12,11 +12,11 @@
 
   "routes": [
     {
-      "src": "/_90ssongs",
+      "src": "/_90'ssongs",
       "dest": "index.js"
     },
     {
-      "src": "/_90ssongs/(.*)",
+      "src": "/_90'ssongs/(.*)",
       "dest": "index.js"
     },
     {
