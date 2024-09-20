@@ -64,6 +64,10 @@
       "dest": "build/index.html"
     },
     {
+      "src": "/search",
+      "dest": "build/index.html"
+    },
+    {
       "src": "/",
       "dest": "build/index.html"
     },
