@@ -33,13 +33,13 @@ exports.getAllSearchSongs = async (req, res) => {
 exports.insertSearchSongs = async (req, res) => {
   try {
   
-    const musicNameSearch = req.params.musicName || "trending songs";
-    const allSongs = await youTubeSearch.searchYouTube(musicNameSearch);
+    const {musicName} = req.params|| "trending songs";
+    const allSongs = await youTubeSearch.searchYouTube(musicName);
     await deleteAllSongs();
     await insertAllSongs(allSongs);
-    const allMusics = await searchSongs.find({}).sort({ id: 1 });
-    res.json(allMusics);
-    console.log(musicNameSearch);
+    //const allMusics = await searchSongs.find({}).sort({ id: 1 });
+    res.json(allSongs);
+    console.log(musicName);
     console.log(allSongs);
     //res.json(allSongs);
   } catch (err) {
