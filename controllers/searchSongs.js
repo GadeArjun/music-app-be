@@ -37,9 +37,11 @@ exports.insertSearchSongs = async (req, res) => {
     const allSongs = await youTubeSearch.searchYouTube(musicNameSearch);
     await deleteAllSongs();
     await insertAllSongs(allSongs);
+    const allSongs = await searchSongs.find({}).sort({ id: 1 });
+    res.json(allSongs);
     console.log(musicNameSearch);
     console.log(allSongs);
-    res.json(allSongs);
+    //res.json(allSongs);
   } catch (err) {
     res.json(err);
   }
