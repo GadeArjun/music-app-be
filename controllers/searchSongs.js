@@ -32,19 +32,17 @@ exports.getAllSearchSongs = async (req, res) => {
 
 exports.insertSearchSongs = async (req, res) => {
   try {
-  
-    const musicName =  "hindi new";
-    //res.json(musicName);
+    const musicName = "hindi new";
+    await deleteAllSongs(); // Delete first to avoid conflicts
     const allSongs = await youTubeSearch.searchYouTube(musicName);
+    
+    if (allSongs.length === 0) {
+      return res.status(404).json({ message: "No songs found." });
+    }
+    
+    await insertAllSongs(allSongs); // Insert after fetching
     res.json(allSongs);
-    await deleteAllSongs();
-    await insertAllSongs(allSongs);
-    //const allMusics = await searchSongs.find({}).sort({ id: 1 });
-   ;
-    console.log(musicName);
-    console.log(allSongs);
-    //res.json(allSongs);
   } catch (err) {
-    res.json(err);
+    res.status(500).json({ message: "Error inserting songs", error: err });
   }
 };
