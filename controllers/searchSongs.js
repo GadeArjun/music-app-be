@@ -34,7 +34,7 @@ exports.insertSearchSongs = async (req, res) => {
   try {
   
     const musicName =  "hindi new";
-    res.json("dhskjdhdhdhdjdjdjdjdhd" , musicName);
+    res.json(musicName);
     const allSongs = await youTubeSearch.searchYouTube(musicName);
     await deleteAllSongs();
     await insertAllSongs(allSongs);
