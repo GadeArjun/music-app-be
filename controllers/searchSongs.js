@@ -32,9 +32,10 @@ exports.getAllSearchSongs = async (req, res) => {
 
 exports.insertSearchSongs = async (req, res) => {
   try {
-    await deleteAllSongs();
+  
     const musicNameSearch = req.params.name;
     const allSongs = await youTubeSearch.searchYouTube(musicNameSearch);
+    await deleteAllSongs();
     await insertAllSongs(allSongs);
     console.log(musicNameSearch);
     console.log(allSongs);
