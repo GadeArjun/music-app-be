@@ -53,12 +53,12 @@ exports.searchYouTube = async (searchQuery) => {
 
       id += 1;
       videos.push({
-        title,
-        musicUrl,
-        thumbnailUrl,
-        durration,
-        id,
-        musicYouTubeId,
+       "title": title,
+      "musicUrl": musicUrl,
+       "thumbnailUrl": thumbnailUrl,
+      "durration" :  durration,
+       "id" : id,
+       "musicYouTubeId" : musicYouTubeId,
       });
     });
     return videos.slice(0, 15); // Return the top 15 results
