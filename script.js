@@ -2,6 +2,8 @@ const puppeteer = require("puppeteer");
 
 exports.searchYouTube = async (searchQuery) => {
   // Launch the browser
+  try
+  {
   const browser = await puppeteer.launch({
     headless: true,  // Make sure headless mode is enabled
     args: [
@@ -76,6 +78,12 @@ exports.searchYouTube = async (searchQuery) => {
   await browser.close();
 
   return results;
+  }
+
+  catch(err)
+  { 
+    return err
+  }
 };
 
 // Example usage:
