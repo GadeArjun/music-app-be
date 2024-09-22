@@ -33,9 +33,12 @@ exports.getAllSearchSongs = async (req, res) => {
 exports.insertSearchSongs = async (req, res) => {
   try {
     const {musicName} = req.params;
-    await deleteAllSongs(); // Delete first to avoid conflicts
+    await deleteAllSongs();
+    console.log("before");// Delete first to avoid conflicts
     const allSongs = await youTubeSearch.searchYouTube(musicName);
-    
+    console.log("after");
+console.log("allSongs");
+    console.log(allSongs);
     if (allSongs.length === 0) {
       return res.status(404).json({ message: "No songs found." });
    }
