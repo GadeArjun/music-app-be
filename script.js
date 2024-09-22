@@ -2,7 +2,16 @@ const puppeteer = require("puppeteer");
 
 exports.searchYouTube = async (searchQuery) => {
   // Launch the browser
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: true,  // Make sure headless mode is enabled
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--disable-gpu'
+    ],
+  });
   const page = await browser.newPage();
 
   // Navigate to YouTube
