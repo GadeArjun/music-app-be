@@ -12,6 +12,7 @@ const path = require("path");
 
 const server = express();
 // middle wares =>
+  
 server.use(express.static(__dirname + "/build"));
 server.use(express.json());
 server.use(cors());
@@ -21,6 +22,7 @@ server.use("/", marathiSongsRouter.router);
 server.use("/", newSongsRouter.router);
 server.use("/", trendingSongsRouter.router);
 server.use("/", searchSongsRouter.router);
+
 server.use("*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
@@ -42,8 +44,10 @@ async function mongooseConnection() {
   }
 }
 
+const PORT = process.env.PORT;
+
 mongooseConnection();
 // server connection =>
-server.listen(process.env.PORT, () => {
-  console.log("server connected to port = ", process.env.PORT);
+server.listen(PORT || 8080, () => {
+  console.log("server connected to port = ", PORT);
 });
